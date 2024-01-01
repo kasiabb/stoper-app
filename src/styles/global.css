@@ -1,0 +1,9 @@
+body {
+background-size: cover;
+  height: 100vh;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:url('https://i.postimg.cc/vDFRgJGD/pexels-tom-swinnen-2249964.jpg')
+}
