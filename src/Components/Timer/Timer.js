@@ -20,11 +20,11 @@ const Timer = () => {
 
   const stopTimer = () => {
     clearInterval(intervalId);
+    setIntervalId(null);
   };
 
   const resetTimer = () => {
     setTime(0);
-    clearInterval(intervalId);
   };
 
   return (

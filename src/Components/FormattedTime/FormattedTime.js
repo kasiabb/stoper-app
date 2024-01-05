@@ -1,23 +1,18 @@
 import styles from './FormattedTime.module.scss';
 
 const FormattedTime = ({ time }) => {
-  const formatTime = (milliseconds) => {
-    const hours = Math.floor(milliseconds / 3600000);
-    const minutes = Math.floor((milliseconds % 3600000) / 60000);
-    const seconds = Math.floor((milliseconds % 60000) / 1000);
-    const millisecondsPart = milliseconds % 1000;
-
-    const padZero = (value) => (value < 10 ? `0${value}` : value);
-
-    return `${padZero(hours)}:${padZero(minutes)}:${padZero(
-      seconds
-    )}.${millisecondsPart}`;
-  };
+  const hours = String(Math.floor(time / 3600000)).padStart(2, '0');
+  const minutes = String(Math.floor((time % 3600000) / 60000)).padStart(2, '0');
+  const seconds = String(Math.floor((time % 60000) / 1000)).padStart(2, '0');
+  const milliseconds = String(time % 1000).padStart(3, '0');
 
   return (
     <div className={styles.component}>
-      <div className={styles.time}>{formatTime(time)}</div>
+      <div className={styles.time}>
+        {hours}:{minutes}:{seconds}.{milliseconds}
+      </div>
     </div>
   );
 };
+
 export default FormattedTime;
