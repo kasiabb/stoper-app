@@ -12,12 +12,13 @@ const Timer = () => {
   }, [intervalId]);
 
   const startTimer = () => {
-    const id = setInterval(() => {
-      setTime((prevTime) => prevTime + 1);
-    }, 1);
-    setIntervalId(id);
+    if (!intervalId) {
+      const id = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1);
+      setIntervalId(id);
+    }
   };
-
   const stopTimer = () => {
     clearInterval(intervalId);
     setIntervalId(null);
